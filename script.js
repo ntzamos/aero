@@ -25,20 +25,21 @@ socket.on('move', function(data) {
     paired = true;
 });
 socket.on('start', function() {
-
-    aeroplane.setPosition(new Vector3([0, 200, - 500]));
-
-    document.getElementById('msgbox').style.display = 'none';
-    finished = 0;
+    start();
 });
 
 
+function start() {
+    aeroplane.setPosition(new Vector3([0, 200, - 500]));
+    document.getElementById('msgbox').style.display = 'none';
+    finished = 0;
+    angle = 0;
+}
+
 window.addEventListener("deviceorientation", function () {
-    document.getElementById('x').value = event.alpha;
-    document.getElementById('y').value = event.beta;
-    document.getElementById('z').value = event.gamma;
     Y = event.beta;
     X = event.alpha;
+    paired = true;
 }, true);
 
 var app = new Application();
@@ -81,10 +82,7 @@ app.input.onKey('UP_ARROW', {
 });
 app.input.onKey('SPACE', {
     callback: function () {
-        aeroplane.setPosition(new Vector3([0, 200, - 500]));
-        document.getElementById('msgbox').style.display = 'none';
-        finished = 0;
-        angle = 0;
+       start();
     },
     repeat: true
 });
