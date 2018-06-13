@@ -20,7 +20,7 @@ C = 10;
 var buildings = new Array();
 
 socket.on('move', function(data) {
-    Y = data.y / 2;
+    Y = data.y;
     X = data.x;
     paired = true;
 });

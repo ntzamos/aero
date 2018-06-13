@@ -1,0 +1,30 @@
+
+<html>
+<head>
+
+<script src="http://83.212.99.94:85/socket.io/socket.io.js"></script>
+</head>
+<body>
+	<center>
+<h1>aero</h1>
+<p id="angle" style="font-size:35px;"></p>
+<button onclick="btn();">START</button>
+</center>
+	<script>
+		var socket = io.connect('http://83.212.99.94:85/');
+
+		window.addEventListener("deviceorientation", function () {
+			var data = {};
+			data.x = event.alpha;
+			data.y = event.beta;
+			data.z = event.gamma;
+			document.getElementById('angle').innerHTML = data.y.toFixed(0);
+			socket.emit('ipod', data);
+		}, true);
+
+		function btn() {
+			socket.emit('start');
+		}
+	</script>
+</body>
+</html>
