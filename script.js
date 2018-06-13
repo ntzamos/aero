@@ -20,9 +20,6 @@ C = 10;
 var buildings = new Array();
 
 socket.on('move', function(data) {
-    document.getElementById('x').value = data.x;
-    document.getElementById('y').value = data.y;
-    document.getElementById('z').value = data.z;
     Y = data.y / 2;
     X = data.x;
     paired = true;
