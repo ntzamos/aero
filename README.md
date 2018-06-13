@@ -7,6 +7,9 @@ You can play the game here [https://nicktzamos.com/aero/](https://nicktzamos.com
 
 You can also connect with your **mobile phone** to use it as a steering wheel.
 
+### Game: [http://nicktzamos.com/](http://nicktzamos.com/aero/)
+### Mobile: [http://nicktzamos.com/aero-controller/](http://nicktzamos.com/aero-controller/)
+
 ### For this project I used
 * [Socket.io](https://socket.io/)
 * [Node.JS](https://nodejs.org/en/)
