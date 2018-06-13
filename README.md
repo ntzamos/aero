@@ -5,10 +5,10 @@ A WebGl 3d game where you can be a pilot and fly through the skyscrapers of New 
 
 Use Left and Right arrows to move the airplane.
 
-You can also connect with your **mobile phone** to use it as a steering wheel.
+You can also connect your **mobile phone**  as a controller.
 
-### Game: [http://nicktzamos.com/](http://nicktzamos.com/aero/)
-### Mobile: [http://nicktzamos.com/aero-controller/](http://nicktzamos.com/aero-controller/)
+### Game: [http://nicktzamos.com/aero](http://nicktzamos.com/aero/) Desktop + Mobile
+### Mobile-Controller: [http://nicktzamos.com/aero-controller/](http://nicktzamos.com/aero-controller/) Mobile only
 
 ### For this project I used
 * [Socket.io](https://socket.io/)
