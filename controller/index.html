@@ -2,16 +2,16 @@
 <html>
 <head>
 
-<script src="http://83.212.99.94:85/socket.io/socket.io.js"></script>
+<script src="http://commando.local:85/socket.io/socket.io.js"></script>
 </head>
 <body>
-	<center>
-<h1>aero</h1>
-<p id="angle" style="font-size:35px;"></p>
-<button onclick="btn();">START</button>
+<center>
+	<h1>aero</h1>
+	<p id="angle" style="font-size:35px;"></p>
+	<button onclick="_askDeviceMotion();">START</button>
 </center>
 	<script>
-		var socket = io.connect('http://83.212.99.94:85/');
+		var socket = io.connect('http://commando.local:85');
 
 		window.addEventListener("deviceorientation", function () {
 			var data = {};
@@ -23,8 +23,69 @@
 		}, true);
 
 		function btn() {
-			socket.emit('start');
 		}
-	</script>
+		
+
+
+		var neverBeenClicked = true;
+
+
+		const argFunc = function (e) {
+			if (neverBeenClicked === true) {
+				neverBeenClicked = false;
+				// alert('One alert')
+
+			}
+			ax = e.acceleration.x; 
+			ay = e.acceleration.y; 
+			az = e.acceleration.z; 
+
+			// ax = (ax/0.10197162129779).toFixed(0);
+			// ay = (ay/0.10197162129779).toFixed(0);
+			// az = (az/0.10197162129779).toFixed(0);
+
+			document.getElementById('angle').innerHTML = "ok";
+			socket.emit('ipod', e.acceleration);
+
+
+		}
+
+		function _askDeviceMotion() {
+			askDeviceMotion(argFunc)
+		}
+
+		function askDeviceMotion(funcArg) {
+			try {
+				if (
+					DeviceMotionEvent &&
+					typeof DeviceMotionEvent.requestPermission === 'function'
+				) {
+					DeviceMotionEvent.requestPermission().then(
+							response => {
+								if (response === 'granted') {
+									grantedDeviceMotion(funcArg)
+								} else {
+									alert('Device Motion permission not granted.')
+								}
+							})
+						.catch(console.error)
+				} else {
+					grantedDeviceMotion(funcArg)
+				}
+			} catch (oops) {
+				alert('Your device and application combination do not support device motion events.')
+			}
+		}
+
+		function grantedDeviceMotion(funcArg) {
+			
+			socket.emit('start');
+
+			window.addEventListener(
+				'devicemotion',
+				funcArg
+			);
+		}
+</script>
 </body>
 </html>

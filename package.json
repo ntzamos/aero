@@ -1,0 +1,23 @@
+{
+  "name": "aero",
+  "version": "1.0.0",
+  "description": "A WebGl 3d game where you can be a pilot and fly through the skyscrapers of New York City.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ntzamos/aero.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ntzamos/aero/issues"
+  },
+  "homepage": "https://github.com/ntzamos/aero#readme",
+  "dependencies": {
+    "socket.io": "^4.0.0"
+  }
+}

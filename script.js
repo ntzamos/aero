@@ -1,4 +1,4 @@
-var socket = io.connect('http://83.212.99.94:85/');
+var socket = io.connect('http://localhost:85/');
 var webkitAudioContext = null;
 var isiPad = navigator.userAgent.match(/iPad/i) != null;
 var ua = navigator.userAgent;
