@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<script src="http://commando.local:85/socket.io/socket.io.js"></script>
+<script src="https://server.greenpanda.io:1337:85/socket.io/socket.io.js"></script>
 </head>
 <body>
 <center>
@@ -11,7 +11,7 @@
 	<button onclick="_askDeviceMotion();">START</button>
 </center>
 	<script>
-		var socket = io.connect('http://commando.local:85');
+		var socket = io.connect('https://server.greenpanda.io:1337:85');
 
 		window.addEventListener("deviceorientation", function () {
 			var data = {};
