@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost:85/');
+var socket = io.connect('https://server.greenpanda.io:1337/');
 var webkitAudioContext = null;
 var isiPad = navigator.userAgent.match(/iPad/i) != null;
 var ua = navigator.userAgent;
